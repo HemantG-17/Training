@@ -1,42 +1,83 @@
-<%- include('./base/header.ejs')%>
-    <div class="container">
-        <div class="alert bg-primary text-center my-3" style="color:white">
-            <h1>SIGN UP FORM</h1>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <form action="/add/user" method="post">
-                        <div>
-                         <label class="form-label">FIRST NAME</label>
-                         <input type="text" class="form-control" name="firstName"></input>
-                         </div>
-                         <div>
-                            <label class="form-label">LAST NAME</label>
-                            <input type="text" class="form-control"name="lastName"></input>
+<%- include('./base/header.ejs') %>
 
-                        </div>
-                        <div>
-                            <label class="form-label"> EMAIL</label>
-                            <input type="text" class="form-control" name="email"></input>
+  <style>
+    /* Background gradient */
+    body {
+      background: linear-gradient(135deg, #f0f4ff, #dfe9f3);
+    }
 
-                        </div>
-                        <div>
-                            <label class="form-label"> PASSWORD</label>
-                            <input type="password" class="form-control" name="password"></input>
+    /* Card hover effect */
+    .card {
+      transition: all 0.3s ease;
+    }
 
-                        </div>
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
 
-                        <input type="submit" value="sign up" class="btn btn-warning w-100 my-3"></input>
-                        <div>
-                            <a href="/user/login" class="btn btn-danger w-100 my-3">Login</a>
-                        </div>
-                    </form>
-                </div>
-                <div class="col"></div>
-            </div>
-        </div>
+    /* Button hover effects */
+    .btn-warning:hover {
+      background-color: #ffb300;
+      border-color: #ffb300;
+      transform: scale(1.03);
+    }
 
+    .btn-outline-danger:hover {
+      background-color: #dc3545;
+      color: white;
+      transform: scale(1.03);
+    }
+  </style>
+
+  <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 450px; width: 100%;">
+      <div class="card-body">
+        <h2 class="card-title text-center text-primary mb-4">Sign Up</h2>
+
+        <form action="/add/user" method="post">
+          <!-- First Name -->
+          <div class="mb-3">
+            <label for="firstName" class="form-label fw-bold">First Name</label>
+            <input type="text" id="firstName" class="form-control" name="firstName" placeholder="Enter your first name"
+              required>
+          </div>
+
+          <!-- Last Name -->
+          <div class="mb-3">
+            <label for="lastName" class="form-label fw-bold">Last Name</label>
+            <input type="text" id="lastName" class="form-control" name="lastName" placeholder="Enter your last name"
+              required>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input type="email" id="email" class="form-control" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <input type="password" id="password" class="form-control" name="password" placeholder="Create a password"
+              required minlength="6" autocomplete="off">
+          </div>
+
+          <!-- Sign Up Button -->
+          <button type="submit" class="btn btn-warning w-100 fw-bold">Sign Up</button>
+
+          <!-- Divider -->
+          <div class="d-flex align-items-center my-3">
+            <hr class="flex-grow-1">
+            <span class="px-2 text-muted">or</span>
+            <hr class="flex-grow-1">
+          </div>
+
+          <!-- Login Redirect -->
+          <a href="/user/login" class="btn btn-outline-danger w-100 fw-bold">Login</a>
+        </form>
+      </div>
     </div>
-    <% include('./base/footer.ejs')%>
+  </div>
+
+  <%- include('./base/footer.ejs') %>
