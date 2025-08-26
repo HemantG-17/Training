@@ -1,14 +1,22 @@
-const express=require('express');
-const userController=require('../controller/userController')
-const router=express.Router();
+const express = require('express');
+const userController = require('../controller/userController')
+const router = express.Router();
 
-router.get('/',(req,res)=>{
+router.get('/', (req, res) => {
     res.render('home');
 })
-router.get('/user/signup',(req,res)=>{
+router.get('/user/signup', (req, res) => {
     res.render('signup');
 })
-router.post('/add/user',(req,res)=>{
-    userController.addUser(req,res)
+router.post('/add/user', (req, res) => {
+    userController.addUser(req, res)
 })
-module.exports=router;
+router.post('/login',(req,res)=>{
+    userController.doLogin(req,res);
+})
+router.get('/addstudent',(req,res)=>{
+    res.render('addStudent');
+})
+
+
+module.exports = router;
