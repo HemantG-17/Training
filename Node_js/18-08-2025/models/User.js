@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose')
 const timeStamps = require('mongoose-timestamps')
 const Schema = mongoose.Schema;
@@ -6,7 +7,7 @@ const userSchema = new Schema({
     lastName: { type: String, required: false },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    usertype: { type: String, default: 'user' },
+    usertype: { type: String, deafult: 'user' },
     createdAt: Date,
     updatedAt: Date
 })

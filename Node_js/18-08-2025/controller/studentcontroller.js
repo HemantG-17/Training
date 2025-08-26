@@ -40,23 +40,36 @@ async function deleteStudent(req, res) {
     }
 }
 
-async function editStudentpage(req,res){
-    try{
-        let studentid=req.params._id;
-        let student=await Student.findOne({_id:studentid})
-        res.render('editStudent',{
-            student:student
+async function editStudentpage(req, res) {
+    try {
+        let studentid = req.params._id;
+        let student = await Student.findOne({ _id: studentid })
+        res.render('editStudent', {
+            student: student
         })
-    }catch(err){
-         console.log(err)
+    } catch (err) {
+        console.log(err)
     }
 }
-async function saveEditedStudent(req,res){
-    try{
-          let studentid = req.params._id;
-          let student= new studentid(req.body)
-          await student.save()
-    }catch(err){
+async function saveEditedStudent(req, res) {
+    try {
+        let studentId = req.params._id
+        console.log(studentId, 'studentId');
+        let student = await Student.findOne({ _id: studentId })
+        student.rollNo=req.body.rollNo;
+        student.name=req.body.name;
+        student.fatherName=req.body.fatherName;
+        student.course=req.body.course;
+        student.branch=req.body.branch;
+        student.yearOfAdm=req.body.yearOfAdm;
+        await student.save();
+        console.log("student Updated Successfully......")
+        let students = await Student.find({})
+        res.render('welcomeAdmin',{
+            students:students
+        });
+
+    } catch (err) {
         console.log(err);
     }
 }

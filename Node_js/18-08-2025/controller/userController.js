@@ -42,10 +42,8 @@ async function doLogin(req, res) {
     }
 }
 
-
-
-
 module.exports = {
     addUser,
     doLogin,
 }
+

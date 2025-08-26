@@ -14,9 +14,16 @@ router.post('/add/user', (req, res) => {
 router.post('/login',(req,res)=>{
     userController.doLogin(req,res);
 })
+
 router.get('/addstudent',(req,res)=>{
     res.render('addStudent');
 })
 
+
+
+router.post('/add-student',(req,res)=>{
+    userController.addStudent(req,res);
+})
+    
 
 module.exports = router;
