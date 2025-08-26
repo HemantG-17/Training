@@ -48,7 +48,7 @@
         border-color: #6366f1;
       }
     </style>
-    <form action="/add/student" method="POST">
+    <form action="/add/student" method="POST" enctype="multipart/form-data">
       <div class="container">
         <div class="form-container">
           <h2 class="text-center mb-4 text-primary">Add Student</h2>
@@ -92,6 +92,11 @@
             <label for="yearOfAdm" class="form-label">Year Of Admission</label>
             <input type="text" id="yearOfAdm" class="form-control" name="yearOfAdm"
               placeholder="Enter year of admission" required>
+
+          </div>
+          <div class="mb-3">
+            <label for="StudentImage" class="form-label">Select Student Image</label>
+            <input type="file" id="studentImage" class="form-control" name="studentImage">
           </div>
 
           <button type="submit" class="btn btn-custom w-100">Add Student</button>
