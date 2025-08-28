@@ -11,6 +11,7 @@
     <table class="table text-center table-bordered table-hover">
         <thead class="table-dark">
             <tr>
+                <th>Student Photo</th>
                 <th>S.No</th>
                 <th>Roll No</th>
                 <th>Name</th>
@@ -24,6 +25,7 @@
         <tbody>
             <% students.forEach((student, index) => { %>
                 <tr>
+                    <td><img src="<%= student.studentImage %>" width='100px' height='100px'></td>
                     <td><%= index + 1 %></td>
                     <td><%= student.rollNo %></td>
                     <td><%= student.name %></td>

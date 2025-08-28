@@ -13,7 +13,6 @@ async function addStudent(req, res) {
             });
             result = await cloudinary.uploader.upload(req.file.path);
             console.log(result);
-
         }
         let student = new Student(req.body);
         if (req.file) {
